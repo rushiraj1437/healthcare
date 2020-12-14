@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Test.Models.User>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Patient Dashboard</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Book Appointment</h5>
+                @Html.ActionLink("Click here", "BookAppointment")
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Treatment History</h5>
+                @Html.ActionLink("Click here", "TreatmentHistory")
+            </div>
+        </div>
+    </div>
+</div>

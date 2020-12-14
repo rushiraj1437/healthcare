@@ -1,0 +1,50 @@
+﻿@model Test.Models.User
+
+@{
+    ViewBag.Title = "Login";
+}
+
+
+<h5>@Html.ValidationMessage("PROGRAM_ID")</h5>
+<div class="loginSection">
+    @using (Html.BeginForm("LoginPost", "Account", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div class="imgcontainer">
+            <img src="~/Content/images/logo.jpg" alt="Avatar" class="avatar">
+        </div>
+        <h3 class="text-center">Login</h3>
+        <div class="logincontainer">
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label" })
+                <div class="col-md-10,required">
+                    @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Username" } })
+                    @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label" })
+                <div class="col-md-10,required">
+                    @Html.PasswordFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Password" } })<br>
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 ">
+                    <button type="submit" value="Login">Login</button>
+                </div>
+            </div>
+        </div>
+        <div class="logincontainer signin">
+            @Html.ActionLink("Click to Sign Up", "SignUp")
+        </div>
+    }
+
+</div>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

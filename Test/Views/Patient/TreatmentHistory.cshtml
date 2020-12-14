@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Test.Models.Appointment>
+
+@{
+    ViewBag.Title = "TreatmentHistory";
+}
+
+<h2>TreatmentHistory</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Disease)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Advice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Reply)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fees)
+        </th>
+        <th></th>
+
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Date)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.StartTime)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.EndTime)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ContactNumber)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Address)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Disease)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Advice)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Reply)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Fees)
+    </td>
+    @if (item.Status == 1)
+    {
+        <td>
+           Rescheduled
+        </td>
+    }
+</tr>
+}
+
+</table>
